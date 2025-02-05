@@ -9,26 +9,34 @@ body {
 
 /* Header Section */
 .header {
-    margin: 10px;
+    margin: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
+    padding: 8px 30px;
+    height: 60px;
     border: 2px solid black;
     background-color: rgb(240, 240, 240);
     border-radius: 10px;
 }
 
+/* Logo Styling */
 .logo {
     display: flex;
     align-items: center;
+    max-width: 60px; /* Increased size */
 }
 
 .logo img {
-    width: 50px;
+    width: 70px !important;  /* Slightly larger width */
+    height: 70px !important;  /* Slightly larger height */
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Prevents distortion */
     margin-right: 10px;
 }
 
+/* Navigation */
 .nav-items > ul {
     display: flex;
     list-style-type: none;
@@ -43,6 +51,20 @@ body {
     cursor: pointer;
 }
 
+/* Navigation Link Styling */
+.nav-link {
+    text-decoration: none;
+    color: inherit; /* Inherit color from parent */
+}
+
+.nav-link:visited {
+    text-decoration: none;
+    color: inherit; /* Inherit color from parent */
+}
+
+
+
+/* Login Button */
 .login {
     padding: 8px 15px;
     border: 1px solid orange;
@@ -65,8 +87,17 @@ body {
     justify-content: center;
     margin: 20px 0;
     gap: 15px;
+    padding: 20px 0;
+    align-items: center;
 }
 
+/* Adjust Header Logo */
+.header-logo {
+    width: 30px; /* Increased size slightly */
+    height: auto; 
+}
+
+/* Filter Button */
 .filter-btn {
     padding: 10px 20px;
     background-color: orange;
@@ -92,24 +123,25 @@ body {
     gap: 20px;
 }
 
+/* Card Container */
 .res-card {
-    background-color: rgb(255, 255, 255);
-    display: flex;
+    background-color: #fff;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    width: 260px;
-    height: 380px;
+    width: 250px;
+    height: 400px;
+    display: flex;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px;
     border-radius: 12px;
-    padding: 20px;
+    margin: 10px;
+    padding: 15px;
     transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden; /* Ensure content stays within the card */
 }
 
 .res-card:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px);
     box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
-    cursor: pointer;
 }
 
 .res-logo {
@@ -119,18 +151,92 @@ body {
     margin-bottom: 15px;
 }
 
+.res-card img {
+    width: 100%;
+    height: 150px; /* Fixed height for images */
+    object-fit: cover; /* Maintain aspect ratio and cover the area */
+    border-radius: 8px;
+}
+
 .res-card h3 {
-    font-size: 1.2rem;
+    font-size: 1.2em;
     margin: 10px 0;
-    font-weight: bold;
-    text-align: center;
 }
 
 .res-card p {
-    margin: 5px 0;
-    font-size: 0.9rem;
-    text-align: center;
-    color: #555;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.res-card .details {
+    padding: 10px 0;
+}
+
+.res-card .cuisines {
+    font-size: 0.9em;
+    color: #888;
+    margin-top: 5px;
+}
+
+.res-card .rating {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.res-card .rating span {
+    margin-left: 5px;
+    color: #ff9800;
+}
+
+/* Search Box and Button Styling */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.search-box {
+    padding: 10px;
+    border: 1px solid #ff9800;
+    border-radius: 20px; /* Fully rounded */
+    outline: none;
+    font-size: 1rem;
+    width: 300px;
+    margin-right: 10px; /* Add margin to separate from button */
+}
+
+.search-button {
+    padding: 10px 20px;
+    border: 1px solid #ff9800;
+    border-radius: 20px; /* Fully rounded */
+    background-color: #ff9800;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.search-button:hover {
+    background-color: #e68900;
+}
+
+/* Top Rated Restaurant Button Styling */
+.top-rated-button {
+    padding: 10px 20px;
+    border: 1px solid #ff9800;
+    border-radius: 20px;
+    background-color: #ff9800;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.top-rated-button:hover {
+    background-color: #e68900;
 }
 
 /* Responsive Design */
@@ -160,4 +266,41 @@ body {
     .res-card h3, .res-card p {
         font-size: 1rem;
     }
+}
+
+.max-width-1200 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Grid Layout for Restaurants */
+.restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cards in a row */
+    gap: 20px;
+}
+
+@media (max-width: 1200px) {
+  .restaurant-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .restaurant-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+    .restaurant-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+  .restaurant-grid {
+    grid-template-columns: 1fr;
+  }
 }

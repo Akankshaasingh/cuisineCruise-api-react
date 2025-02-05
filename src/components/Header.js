@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { LOGO_URL } from "../utils/constants";
 
 const Header = () => {
@@ -7,14 +8,22 @@ const Header = () => {
   return (
     <div className="header">
       <div className="logo-container">
-        <img className="logo" src={LOGO_URL}></img>
+        <img className="logo" src={LOGO_URL} alt="Logo" />
       </div>
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Cart</li>
+          <li>
+            <Link to="/" className="nav-link">Home</Link>
+          </li>
+          <li>
+            <Link to="/about" className="nav-link">About</Link>
+          </li>
+          <li>
+            <Link to="/contact" className="nav-link">Contact</Link>
+          </li>
+          <li>
+            <Link to="/cart" className="nav-link">Cart</Link>
+          </li>
           <button
             className="login"
             onClick={() => {
@@ -30,4 +39,5 @@ const Header = () => {
     </div>
   );
 };
+
 export default Header;
